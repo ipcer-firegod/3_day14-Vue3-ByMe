@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <router-view></router-view>
+  <div class="login-page">个人信息</div>
 </template>
 
 <style scoped></style>

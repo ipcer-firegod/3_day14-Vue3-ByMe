@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <router-view></router-view>
+  <div class="login-page">用户头像</div>
 </template>
 
 <style scoped></style>
