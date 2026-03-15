@@ -129,7 +129,7 @@ watch(isRegister, () => {
         </el-form-item>
         <el-form-item prop="repassword">
           <el-input
-            v-model.number="ruleForm.repassword"
+            v-model="ruleForm.repassword"
             :prefix-icon="Lock"
             type="password"
             placeholder="请确认密码"
