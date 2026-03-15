@@ -21,6 +21,11 @@ const router = createRouter({
           component: () => import('@/views/article/ArticleManage.vue')
         },
         {
+          path: '/article/channel',
+          name: 'article-channel',
+          component: () => import('@/views/article/ArticleChannel.vue')
+        },
+        {
           path: '/user/profile',
           name: 'user-profile',
           component: () => import('@/views/user/UserProfile.vue')

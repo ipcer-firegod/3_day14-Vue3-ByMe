@@ -1,7 +1,12 @@
 <script setup></script>
 
 <template>
-  <div class="login-page">文章管理</div>
+  <page-container>
+    <template #title>文章管理</template>
+    <template #extra>
+      <el-button type="primary">添加文章</el-button>
+    </template>
+  </page-container>
 </template>
 
 <style scoped></style>

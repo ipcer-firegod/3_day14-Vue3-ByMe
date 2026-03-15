@@ -5,7 +5,8 @@ import {
   User,
   Crop,
   EditPen,
-  SwitchButton
+  SwitchButton,
+  Management
 } from '@element-plus/icons-vue'
 import avatar from '@/assets/default.png'
 import { useUserStore } from '@/stores'
@@ -47,9 +48,6 @@ const handleCommand = async (key) => {
       <div class="el-aside__logo"></div>
       <el-menu
         :default-active="$route.path"
-        class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
         active-text-color="#ffd04b"
         background-color="#232323"
         text-color="#fff"
@@ -58,6 +56,10 @@ const handleCommand = async (key) => {
         <el-menu-item index="/article/manage">
           <el-icon><icon-menu /></el-icon>
           <span>文章管理</span>
+        </el-menu-item>
+        <el-menu-item index="/article/channel">
+          <el-icon><Management /></el-icon>
+          <span>文章分类</span>
         </el-menu-item>
         <el-sub-menu index="/user">
           <template #title>
