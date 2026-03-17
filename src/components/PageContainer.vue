@@ -8,7 +8,7 @@
         <span>
           <slot name="title">默认标题</slot>
         </span>
-        <slot name="extra">默认按钮</slot>
+        <slot name="extra"></slot>
       </div>
     </template>
     <slot>默认内容</slot>
