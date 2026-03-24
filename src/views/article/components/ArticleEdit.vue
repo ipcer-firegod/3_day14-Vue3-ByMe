@@ -41,7 +41,7 @@ const onPublish = async (state) => {
     fd.append(key, formModel.value[key])
   }
 
-  // <!--! 参数使用 fd 而不是 formModel.value
+  // <!--! 参数使用 fd 而不是 formModel.value (Body 参数 application/json、 multipart/form-data格式的区别)
   const isEdit = formModel.value.id
   if (isEdit) {
     await articleUpdateService(fd)
@@ -65,6 +65,7 @@ const open = async (row) => {
     const res = await articleGetInfoService(row.id)
     formModel.value = res.data.data
     imageUrl.value = baseURL + formModel.value.cover_img
+    // <!--! cover_img 获得的是string，但是发布更新需要的是 file 格式的，需要转换一下
     // 提交给后台，需要的是 file 格式的，将网络图片，转成 file 格式
     // 网络图片转成 file 对象, 需要转换一下 imageUrlToFile
     const file = await imageUrlToFileObject(
@@ -102,8 +103,9 @@ async function imageUrlToFileObject(imageUrl, filename) {
   }
 }
 
-// 图片上传
-// <!--! 不理解 ； 是 uploadFile.raw 而非 imageUrl.value
+// 图片上传（本质是文件预览）
+// <!--! 不理解 ； 是 uploadFile.raw 而非 imageUrl.value。
+// （是el-upload 组件的属性，是on-change的参数，代表上传的文件对象）
 const onUploadFile = (uploadFile) => {
   imageUrl.value = URL.createObjectURL(uploadFile.raw)
   formModel.value.cover_img = uploadFile.raw

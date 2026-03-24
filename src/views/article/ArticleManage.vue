@@ -33,7 +33,7 @@ const onReset = () => {
 
 // 文章编辑抽屉
 // false
-const drawer = ref()
+const drawer = ref(null)
 
 const OnSuccess = (type) => {
   if (type === 'add') {
@@ -58,7 +58,8 @@ const getArticleList = async () => {
 }
 getArticleList()
 
-// <!--! 加上drawer.value = true后，无法正常打开抽屉。为什么？因为使之为 true 了 -->
+// <!--! 加上drawer.value = true后，无法正常打开抽屉。为什么？
+// 因为这是组件本身，想要让抽屉显现，需要使用组件中的 const drawerVisible = ref(false) 这部分内容控制 -->
 const onEdit = (row) => {
   // drawer.value = true
   drawer.value.open(row)
